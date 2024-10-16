@@ -1,9 +1,11 @@
+/*Generales*/
 *{
   margin: 0;
   padding: 0;
   font-family: "Rubik", sans-serif;
 }
 
+/*Header*/
 .containerPrincipalHeader{
   width: 100vw;
   height: 8vh;
@@ -67,4 +69,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/*Main*/
+
+.containerView{
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+
+}
+
+.list{
+  height: 92vh;
+  background-color: blue;
+}
+
+.store{
+  height: 92vh;
 }
