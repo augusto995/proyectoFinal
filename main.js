@@ -59,6 +59,7 @@ const handleSaveOrModifyElements = () =>{
         categories
     }
     setInLocalStorage(object)
+    handleGetProductsToStore()
 
     closeModal();
 
