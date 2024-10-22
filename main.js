@@ -1,15 +1,18 @@
 import { setInLocalStorage } from "./src/persistence/localstorage";
 import { renderCategories } from "./src/services/categories";
 import { handleGetProductsToStore } from "./src/views/store";
+import { handleGetProductsToStore } from "./src/view/store";
 import './style.css'
 
 //Aplicacion
 handleGetProductsToStore()
 
+/*Aplicacion */
+
+handleGetProductsToStore()
+
+
 renderCategories();
-
-
-
 /*Producto */
 
 const buttonAdd = document.getElementById("buttonAddElement");
