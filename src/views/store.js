@@ -47,16 +47,19 @@ export const handleRenderList = (productsIn) => {
         ${renderProductGroup(gaseosas, "Gaseosas")}`
     ;
 
-    const addEvents = (productsIn) =>{
-        if(productsIn){
-        productsIn.forEach((element, index) => {
-            const productContainer = document.getElementById(`product-${element.categories}-${index}`)
-                productContainer.addEventListener('click', () => {
-                    console.log("productoActivo", element)
-                })
-        });
-    }
-    }
+    const addEvents = (productsIn) => {
+        if (productsIn) {
+            productsIn.forEach((element, index) => {
+                const productContainer = document.getElementById(`product-${element.categories}-${index}`);
+                
+                    productContainer.addEventListener('click', () => {
+                        console.log("productoActivo", element);
+                    });
+                
+            });
+        }
+    };
+
     addEvents(burguers)
     addEvents(papas)
     addEvents(gaseosas)
