@@ -1,4 +1,5 @@
 //Store
+import { openModal, setProductoActivo } from "../../main";
 import { handleGetProductLocalStorage } from "../persistence/localstorage";
 
 export const handleGetProductsToStore = () => {
@@ -54,7 +55,8 @@ export const handleRenderList = (productsIn) => {
                 const productContainer = document.getElementById(`product-${element.categories}-${index}`);
                 
                     productContainer.addEventListener('click', () => {
-                        console.log("productoActivo", element);
+                        setProductoActivo(element)
+                        openModal()
                     });
                 
             });
