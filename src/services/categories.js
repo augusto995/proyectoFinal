@@ -2,6 +2,8 @@ import { categoriaActiva } from "../../main";
 import { handleGetProductLocalStorage } from "../persistence/localstorage";
 import { handleRenderList } from "../views/store";
 
+
+// Categoria
 const handleFilterProductsByCategory = (categoryIn) =>{
     const products = handleGetProductLocalStorage();
     switch(categoryIn){
@@ -36,8 +38,8 @@ export const renderCategories = () =>{
     <li id="Hamburguesas">Hamburguesas</li>
     <li id="Papas">Papas</li>
     <li id="Gaseosas">Gaseosas</li>
-    <li id="Mayor precio">Mayor precio</li>
-    <li id="Menor precio">Menor precio</li>
+    <li id="mayorPrecio">Mayor precio</li>
+    <li id="menorPrecio">Menor precio</li>
     `
 
     const liElements = ulList.querySelectorAll("li");
@@ -48,6 +50,7 @@ export const renderCategories = () =>{
     })
 
     const handleClick = (elemento) => {
+        handleFilterProductsByCategory(elemento.id)
         liElements.forEach((el) => {
             if(el.classList.contains('liActive')){
                 el.classList.remove('liActive')
