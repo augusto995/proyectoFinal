@@ -1,8 +1,8 @@
 /*Producto */
+import Swal from "sweetalert2";
 import { productoActivo } from "../../main";
 import { handleGetProductLocalStorage, setInLocalStorage } from "../persistence/localstorage";
-import { handleGetProductsToStore } from "../views/store";
-import { handleRenderList } from "../views/store";
+import { handleGetProductsToStore,handleRenderList } from "../views/store";
 import { closeModal } from "../views/modal";
 
 
@@ -37,6 +37,11 @@ const handleSaveOrModifyElements = () =>{
             categories
         }
     }
+    Swal.fire({
+        title: "Correcto!",
+        text: "Producto guardado correctamente!",
+        icon: "success"
+      });
     
     setInLocalStorage(object)
     handleGetProductsToStore()
@@ -46,11 +51,27 @@ const handleSaveOrModifyElements = () =>{
 
 //Eliminar elemento
 export const handleDeleteProduct = () => {
-    const products = handleGetProductLocalStorage()
-    const result = products.filter((el) => el.id != productoActivo.id)
+    Swal.fire({
+        title: "¿Desea eliminar el elemento?",
+        text: "Si lo elimina será permanente",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, eliminar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            const products = handleGetProductLocalStorage()
+            const result = products.filter((el) => el.id != productoActivo.id)
+        
+            localStorage.setItem("products", JSON.stringify(result));
+            const newProducts = handleGetProductLocalStorage()
+            handleRenderList(newProducts)
+            closeModal()
+        } else{
+            closeModal()
 
-    localStorage.setItem("products", JSON.stringify(result));
-    const newProducts = handleGetProductLocalStorage()
-    handleRenderList(newProducts)
-    closeModal()
+        }
+      });
+    
 }
