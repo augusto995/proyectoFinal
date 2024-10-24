@@ -2,6 +2,7 @@
 
 import { setProductoActivo } from "../../main"
 import { productoActivo } from "../../main"
+import { handleDeleteProduct } from "../services/products";
 
 const cancelButton = document.getElementById("cancelButton")
 cancelButton.addEventListener('click', () =>{
@@ -12,6 +13,14 @@ cancelButton.addEventListener('click', () =>{
 export const openModal = () => {
     const modal = document.getElementById("modalPopUP");
     modal.style.display= "flex"
+    const buttonDelete = document.getElementById("deleteButton")
+    if(productoActivo){
+        buttonDelete.style.display = "block"
+    } else{
+        buttonDelete.style.display = "none"
+    }
+
+
     if(productoActivo){
         const nombre = document.getElementById("nombre"),
         imagen = document.getElementById("img"),
@@ -41,4 +50,12 @@ const resetModal = () =>{
     precio.value = 0
     categories.value = "Seleccione una categoria"
 }
+
+const deleteButton = document.getElementById("deleteButton");
+deleteButton.addEventListener("click", () =>{
+    handleButtondelete();
+})
  
+const handleButtondelete = () =>{
+    handleDeleteProduct()
+}
