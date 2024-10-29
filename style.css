@@ -279,7 +279,7 @@ border-radius: 0.4rem;
   }
 }
 
-/*Scrollbar*/
+/*Scrollbar */
 ::-webkit-scrollbar{
   width: 0.7rem;
   background-color: #fff;
